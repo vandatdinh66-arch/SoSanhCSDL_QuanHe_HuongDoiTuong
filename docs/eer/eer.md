@@ -150,10 +150,3 @@ ThanhPhanSoLuong { ThanhPhan tp, int soLuong }
 ```
 
 Điểm khác biệt cần bàn: trong mô hình đối tượng, cấu trúc của **từng phiên bản** có thể là một cây đối tượng riêng (cụm gốc của phiên bản), còn mô hình quan hệ dùng khóa `ma_pb` để tách phiên bản. Phần này sẽ làm rõ ở tuần 9-10.
-
-## 8. Việc cần làm tiếp
-
-- [ ] Nhóm xác nhận 3 quyết định ở mục 1.
-- [ ] Vẽ lại sơ đồ trên diagrams.net theo ký hiệu ở mục 3, xuất `eer.png` (hoặc `.drawio`) vào thư mục này.
-- [ ] Kiểm tra EER với cây Laptop mẫu: mọi nghiệp vụ N1 đến N14 đều biểu diễn được.
-- [ ] Chuyển sang bước phụ thuộc hàm và chuẩn hóa (tuần 4-5).
