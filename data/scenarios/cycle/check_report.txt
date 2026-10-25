@@ -1,0 +1,16 @@
+Bao cao kiem tra du lieu: data/scenarios/cycle
+[PASS] THANH_PHAN: khong trung ma (1000 dong)
+[PASS] Moi MaLoai trong THANH_PHAN deu ton tai trong LOAI_THANH_PHAN
+[PASS] Moi thanh phan thuoc dung 1 bang con (Cum 31, CoKhi 500, DienTu 469) va khop MaLoai
+[PASS] Goc cua 2 phien ban deu la cum lap rap hop le
+[PASS] Khoa ngoai MaPhienBan/MaCha/MaCon hop le (2284 dong)
+[PASS] Khong co dong MaCha = MaCon
+[PASS] SoLuong la so nguyen > 0
+[PASS] Khoa chinh (MaPhienBan, MaCha, MaCon) khong trung
+[PASS] MaCha luon la cum lap rap
+---- Phien ban PB_v1.0: 1143 canh ----
+[PASS] PB_v1.0: phat hien chu trinh nhu mong doi (1000 nut khong sap xep topo duoc vi chu trinh)
+---- Phien ban PB_v2.0: 1141 canh ----
+[INFO] PB_v2.0: khong co chu trinh (chu trinh chi chen vao PB_v1.0)
+
+KET LUAN: DAT (khong co loi)

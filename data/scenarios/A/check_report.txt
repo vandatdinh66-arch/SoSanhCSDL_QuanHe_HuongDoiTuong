@@ -1,0 +1,31 @@
+Bao cao kiem tra du lieu: data/scenarios/A
+[PASS] THANH_PHAN: khong trung ma (1000 dong)
+[PASS] Moi MaLoai trong THANH_PHAN deu ton tai trong LOAI_THANH_PHAN
+[PASS] Moi thanh phan thuoc dung 1 bang con (Cum 31, CoKhi 500, DienTu 469) va khop MaLoai
+[PASS] So nut = 1000
+[PASS] Goc cua 2 phien ban deu la cum lap rap hop le
+[PASS] Khoa ngoai MaPhienBan/MaCha/MaCon hop le (2282 dong)
+[PASS] Khong co dong MaCha = MaCon
+[PASS] SoLuong la so nguyen > 0
+[PASS] Khoa chinh (MaPhienBan, MaCha, MaCon) khong trung
+[PASS] MaCha luon la cum lap rap
+---- Phien ban PB_v1.0: 1141 canh ----
+[PASS] PB_v1.0: do thi khong co chu trinh (DAG)
+[PASS] PB_v1.0: moi nut tru goc deu co cha
+[PASS] PB_v1.0: goc khong co cha
+[PASS] PB_v1.0: moi cum lap rap co it nhat 1 con
+[PASS] PB_v1.0: tat ca 1000 nut deu di den duoc tu goc
+[INFO] PB_v1.0: so nut=1000, canh=1141, do sau that=3, linh kien la=969, nut dung chung=96 (9.6%)
+[INFO] PB_v1.0: so con trung binh moi cum=36.81
+[PASS] PB_v1.0: do sau = 3
+[PASS] PB_v1.0: ti le dung chung 9.6% xap xi 10%
+---- Phien ban PB_v2.0: 1141 canh ----
+[PASS] PB_v2.0: do thi khong co chu trinh (DAG)
+[PASS] PB_v2.0: moi nut tru goc deu co cha
+[PASS] PB_v2.0: goc khong co cha
+[PASS] PB_v2.0: moi cum lap rap co it nhat 1 con
+[PASS] PB_v2.0: tat ca 1000 nut deu di den duoc tu goc
+[INFO] PB_v2.0: so nut=1000, canh=1141, do sau that=3, linh kien la=969, nut dung chung=96 (9.6%)
+[INFO] PB_v2.0: so con trung binh moi cum=36.81
+
+KET LUAN: DAT (khong co loi)
