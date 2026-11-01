@@ -5,6 +5,7 @@ import vn.edu.bom.oodb.dto.BomSummary;
 import vn.edu.bom.oodb.dto.SharedComponent;
 import vn.edu.bom.oodb.dto.VersionDiff;
 import vn.edu.bom.oodb.dto.WhereUsedResult;
+import vn.edu.bom.oodb.experiment.TransactionExperimentRunner;
 import vn.edu.bom.oodb.importer.CsvDataImporter;
 import vn.edu.bom.oodb.importer.ResultVerifier;
 import vn.edu.bom.oodb.model.PhienBan;
@@ -15,8 +16,12 @@ import vn.edu.bom.oodb.repository.SanPhamRepository;
 import vn.edu.bom.oodb.repository.ThanhPhanRepository;
 import vn.edu.bom.oodb.util.Jpa;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -42,6 +47,7 @@ public final class OodbApplication {
             case "demo" -> runDemo(positional, opt);
             case "write-demo" -> runWriteDemo(positional, opt);
             case "bench" -> runBench(positional, opt);
+            case "tx-experiment" -> runTxExperiment(positional, opt);
             default -> {
                 System.err.println("Lenh khong hop le: " + command);
                 usage();
@@ -283,6 +289,80 @@ public final class OodbApplication {
         }
     }
 
+    /**
+     * TV3 - Tuan 3: sinh "bo so lieu thuc nghiem thao tac cap nhat/giao dich" ra file
+     * co cau truc (CSV + markdown) trong {@code outDir}, thay vi chi in ra console nhu
+     * {@code write-demo}. Chay tren du lieu thuc cua TV5 (moi kich ban duoc nap vao mot
+     * CSDL ObjectDB tam, xoa sau khi chay xong) nen khong anh huong du lieu khac.
+     */
+    private static void runTxExperiment(List<String> positional, Map<String, String> opt) throws Exception {
+        if (positional.size() < 2) {
+            throw new IllegalArgumentException(
+                    "Can: tx-experiment <scenariosRootDir> <outDir> [--scenarios A,B,C,D] [--threads 2,5,10]");
+        }
+        Path scenariosRoot = Path.of(positional.get(0));
+        Path outDir = Path.of(positional.get(1));
+        List<String> kichBanList = Arrays.stream(opt.getOrDefault("scenarios", "A,B,C,D").split(","))
+                .map(String::trim)
+                .filter(s -> !s.isEmpty())
+                .toList();
+        int[] threadCounts = Arrays.stream(opt.getOrDefault("threads", "2,5,10").split(","))
+                .map(String::trim)
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        TransactionExperimentRunner runner = new TransactionExperimentRunner();
+        List<String> daChay = new ArrayList<>();
+
+        for (String kichBan : kichBanList) {
+            Path scenarioDir = scenariosRoot.resolve(kichBan);
+            if (!Files.exists(scenarioDir.resolve("THANH_PHAN.csv"))) {
+                System.out.println("[TX-EXPERIMENT] Bo qua " + kichBan + " - khong tim thay du lieu tai "
+                        + scenarioDir);
+                continue;
+            }
+            Path workDir = Files.createTempDirectory("tx-experiment-" + kichBan + "-");
+            String dbUrl = "objectdb:" + workDir.resolve(kichBan + ".odb");
+            System.out.println("[TX-EXPERIMENT] Kich ban " + kichBan + " -> " + dbUrl);
+            try (Jpa jpa = new Jpa(dbUrl)) {
+                new CsvDataImporter(jpa).importScenario(scenarioDir, "SP_LAPTOP", "Laptop LT-100", true);
+                runner.chayChuoiThaoTac(jpa, kichBan, "PB_v1.0");
+                runner.chayThucNghiemDongThoi(jpa, kichBan, "PB_v1.0", threadCounts);
+            } finally {
+                xoaThuMuc(workDir);
+            }
+            daChay.add(kichBan);
+        }
+
+        Path fileThaoTac = outDir.resolve("tv3-transaction-log.csv");
+        Path fileDongThoi = outDir.resolve("tv3-concurrency-log.csv");
+        Path fileTomTat = outDir.resolve("tv3-transaction-summary.md");
+        runner.xuatThaoTacCsv(fileThaoTac);
+        runner.xuatDongThoiCsv(fileDongThoi);
+        runner.xuatTomTatMarkdown(fileTomTat, daChay);
+
+        System.out.println("[TX-EXPERIMENT] Da ghi: " + fileThaoTac);
+        System.out.println("[TX-EXPERIMENT] Da ghi: " + fileDongThoi);
+        System.out.println("[TX-EXPERIMENT] Da ghi: " + fileTomTat);
+        System.out.println("[TX-EXPERIMENT] Tong so thao tac: " + runner.ketQuaThaoTac().size()
+                + ", tong so phep thu dong thoi: " + runner.ketQuaDongThoi().size());
+    }
+
+    private static void xoaThuMuc(Path dir) throws IOException {
+        if (!Files.exists(dir)) {
+            return;
+        }
+        try (var stream = Files.walk(dir)) {
+            stream.sorted(Comparator.reverseOrder()).forEach(p -> {
+                try {
+                    Files.deleteIfExists(p);
+                } catch (IOException ignored) {
+                    // best-effort cleanup cua CSDL tam, khong anh huong ket qua thuc nghiem
+                }
+            });
+        }
+    }
+
     private static void doBench(String ten, int runs, Runnable action) {
         long best = Long.MAX_VALUE;
         long total = 0;
@@ -336,13 +416,15 @@ public final class OodbApplication {
                   import     <scenarioDir> <dbPath> [--product MA] [--name TEN] [--draft-all] [--no-reset]
                   verify     <scenarioDir> <dbPath> [--report FILE]
                   demo       <dbPath> [--version PB_v1.0]
-                  write-demo <dbPath> [--source PB_v2.0] [--target PB_demo]
-                  bench      <dbPath> [--version PB_v1.0] [--runs 5]
+                  write-demo    <dbPath> [--source PB_v2.0] [--target PB_demo]
+                  bench         <dbPath> [--version PB_v1.0] [--runs 5]
+                  tx-experiment <scenariosRootDir> <outDir> [--scenarios A,B,C,D] [--threads 2,5,10]
 
                 Vi du:
                   java ... OodbApplication import data/scenarios/A target/oodb-A.odb
                   java ... OodbApplication verify data/scenarios/A target/oodb-A.odb
                   java ... OodbApplication demo target/oodb-A.odb
+                  java ... OodbApplication tx-experiment data/scenarios experiments
                 """);
     }
 }

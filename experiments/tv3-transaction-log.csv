@@ -1,0 +1,45 @@
+kich_ban,phien_ban,ma_thao_tac,loai_thao_tac,tham_so,ket_qua,thoi_gian_ms,ghi_chu
+A,PB_v1.0,N14,Sao chep phien ban,"nguon=PB_v1.0, dich=TX_DEMO_A",OK,39,Thanh cong
+A,TX_DEMO_A,N12,Sua so luong - thanh cong,"cha=TP_000001, con=TP_000357, SL=10",OK,0,Thanh cong
+A,TX_DEMO_A,N12,Sua so luong - quan he khong ton tai,"cha=TP_000001, con=MA_KHONG_TON_TAI_XYZ",OK_CHAN_DUNG,0,IllegalArgumentException: Khong co quan he TP_000001 -> MA_KHONG_TON_TAI_XYZ
+A,PB_v1.0,N12,Sua so luong - chan boi BR-14 (phien ban da phat hanh),"cha=TP_000001, con=TP_000357",OK_CHAN_DUNG,0,"IllegalStateException: Phien ban PB_v1.0 dang o trang thai PHAT_HANH, khong duoc sua cau truc (BR-14)"
+A,TX_DEMO_A,N11,Them thanh phan con - thanh cong (dung chung),"cha=TP_000002, con=TP_000357, SL=5",OK,1,Thanh cong
+A,TX_DEMO_A,N11,Them thanh phan con - chan chu trinh,"cha=TP_000002, con=TP_000001",OK_CHAN_DUNG,4,IllegalStateException: Them TP_000002 -> TP_000001 se tao chu trinh trong phien ban TX_DEMO_A
+A,TX_DEMO_A,N13,Thay the linh kien - chan chu trinh,"cu=TP_000357 (con cua TP_000002), moi=TP_000001",OK_CHAN_DUNG,9,IllegalStateException: Thay TP_000357 bang TP_000001 tai TP_000002 se tao chu trinh
+A,TX_DEMO_A,N13,Thay the linh kien - thanh cong (co the gop trung khoa),"cu=TP_000357, moi=TP_000689",OK,6,Thanh cong
+A,TX_DEMO_A,N8,"So sanh voi ban goc (thong tin, khong phai pass/fail)",PB_v1.0 vs TX_DEMO_A,OK,7,"them=3, xoa=3, doi so luong=1"
+A,TX_DEMO_A,N15,Phat hanh phien ban (BR-15),phien ban=TX_DEMO_A,OK,10,Thanh cong
+A,TX_DEMO_A,N12,Sua so luong - chan boi BR-14 (sau khi tu phat hanh),"cha=TP_000001, con=TP_000357",OK_CHAN_DUNG,0,"IllegalStateException: Phien ban TX_DEMO_A dang o trang thai PHAT_HANH, khong duoc sua cau truc (BR-14)"
+B,PB_v1.0,N14,Sao chep phien ban,"nguon=PB_v1.0, dich=TX_DEMO_B",OK,7,Thanh cong
+B,TX_DEMO_B,N12,Sua so luong - thanh cong,"cha=TP_000001, con=TP_000400, SL=9",OK,0,Thanh cong
+B,TX_DEMO_B,N12,Sua so luong - quan he khong ton tai,"cha=TP_000001, con=MA_KHONG_TON_TAI_XYZ",OK_CHAN_DUNG,0,IllegalArgumentException: Khong co quan he TP_000001 -> MA_KHONG_TON_TAI_XYZ
+B,PB_v1.0,N12,Sua so luong - chan boi BR-14 (phien ban da phat hanh),"cha=TP_000001, con=TP_000400",OK_CHAN_DUNG,0,"IllegalStateException: Phien ban PB_v1.0 dang o trang thai PHAT_HANH, khong duoc sua cau truc (BR-14)"
+B,TX_DEMO_B,N11,Them thanh phan con - thanh cong (dung chung),"cha=TP_000002, con=TP_000400, SL=5",OK,0,Thanh cong
+B,TX_DEMO_B,N11,Them thanh phan con - chan chu trinh,"cha=TP_000002, con=TP_000001",OK_CHAN_DUNG,0,IllegalStateException: Them TP_000002 -> TP_000001 se tao chu trinh trong phien ban TX_DEMO_B
+B,TX_DEMO_B,N13,Thay the linh kien - chan chu trinh,"cu=TP_000400 (con cua TP_000002), moi=TP_000001",OK_CHAN_DUNG,10,IllegalStateException: Thay TP_000400 bang TP_000001 tai TP_000056 se tao chu trinh
+B,TX_DEMO_B,N13,Thay the linh kien - thanh cong (co the gop trung khoa),"cu=TP_000400, moi=TP_000618",OK,2,Thanh cong
+B,TX_DEMO_B,N8,"So sanh voi ban goc (thong tin, khong phai pass/fail)",PB_v1.0 vs TX_DEMO_B,OK,4,"them=4, xoa=3, doi so luong=0"
+B,TX_DEMO_B,N15,Phat hanh phien ban (BR-15),phien ban=TX_DEMO_B,OK,18,Thanh cong
+B,TX_DEMO_B,N12,Sua so luong - chan boi BR-14 (sau khi tu phat hanh),"cha=TP_000001, con=TP_000400",OK_CHAN_DUNG,0,"IllegalStateException: Phien ban TX_DEMO_B dang o trang thai PHAT_HANH, khong duoc sua cau truc (BR-14)"
+C,PB_v1.0,N14,Sao chep phien ban,"nguon=PB_v1.0, dich=TX_DEMO_C",OK,7,Thanh cong
+C,TX_DEMO_C,N12,Sua so luong - thanh cong,"cha=TP_000001, con=TP_000197, SL=4",OK,0,Thanh cong
+C,TX_DEMO_C,N12,Sua so luong - quan he khong ton tai,"cha=TP_000001, con=MA_KHONG_TON_TAI_XYZ",OK_CHAN_DUNG,0,IllegalArgumentException: Khong co quan he TP_000001 -> MA_KHONG_TON_TAI_XYZ
+C,PB_v1.0,N12,Sua so luong - chan boi BR-14 (phien ban da phat hanh),"cha=TP_000001, con=TP_000197",OK_CHAN_DUNG,0,"IllegalStateException: Phien ban PB_v1.0 dang o trang thai PHAT_HANH, khong duoc sua cau truc (BR-14)"
+C,TX_DEMO_C,N11,Them thanh phan con - thanh cong (dung chung),"cha=TP_000002, con=TP_000197, SL=5",OK,0,Thanh cong
+C,TX_DEMO_C,N11,Them thanh phan con - chan chu trinh,"cha=TP_000002, con=TP_000001",OK_CHAN_DUNG,0,IllegalStateException: Them TP_000002 -> TP_000001 se tao chu trinh trong phien ban TX_DEMO_C
+C,TX_DEMO_C,N13,Thay the linh kien - chan chu trinh,"cu=TP_000197 (con cua TP_000002), moi=TP_000001",OK_CHAN_DUNG,5,IllegalStateException: Thay TP_000197 bang TP_000001 tai TP_000119 se tao chu trinh
+C,TX_DEMO_C,N13,Thay the linh kien - thanh cong (co the gop trung khoa),"cu=TP_000197, moi=TP_000265",OK,2,Thanh cong
+C,TX_DEMO_C,N8,"So sanh voi ban goc (thong tin, khong phai pass/fail)",PB_v1.0 vs TX_DEMO_C,OK,4,"them=3, xoa=3, doi so luong=1"
+C,TX_DEMO_C,N15,Phat hanh phien ban (BR-15),phien ban=TX_DEMO_C,OK,8,Thanh cong
+C,TX_DEMO_C,N12,Sua so luong - chan boi BR-14 (sau khi tu phat hanh),"cha=TP_000001, con=TP_000197",OK_CHAN_DUNG,0,"IllegalStateException: Phien ban TX_DEMO_C dang o trang thai PHAT_HANH, khong duoc sua cau truc (BR-14)"
+D,PB_v1.0,N14,Sao chep phien ban,"nguon=PB_v1.0, dich=TX_DEMO_D",OK,4,Thanh cong
+D,TX_DEMO_D,N12,Sua so luong - thanh cong,"cha=TP_000118, con=TP_000199, SL=9",OK,0,Thanh cong
+D,TX_DEMO_D,N12,Sua so luong - quan he khong ton tai,"cha=TP_000118, con=MA_KHONG_TON_TAI_XYZ",OK_CHAN_DUNG,0,IllegalArgumentException: Khong co quan he TP_000118 -> MA_KHONG_TON_TAI_XYZ
+D,PB_v1.0,N12,Sua so luong - chan boi BR-14 (phien ban da phat hanh),"cha=TP_000118, con=TP_000199",OK_CHAN_DUNG,0,"IllegalStateException: Phien ban PB_v1.0 dang o trang thai PHAT_HANH, khong duoc sua cau truc (BR-14)"
+D,TX_DEMO_D,N11,Them thanh phan con - thanh cong (dung chung),"cha=TP_000002, con=TP_000199, SL=5",OK,0,Thanh cong
+D,TX_DEMO_D,N11,Them thanh phan con - chan chu trinh,"cha=TP_000002, con=TP_000001",OK_CHAN_DUNG,0,IllegalStateException: Them TP_000002 -> TP_000001 se tao chu trinh trong phien ban TX_DEMO_D
+D,TX_DEMO_D,N13,Thay the linh kien - chan chu trinh,"cu=TP_000199 (con cua TP_000002), moi=TP_000001",OK_CHAN_DUNG,6,IllegalStateException: Thay TP_000199 bang TP_000001 tai TP_000118 se tao chu trinh
+D,TX_DEMO_D,N13,Thay the linh kien - thanh cong (co the gop trung khoa),"cu=TP_000199, moi=TP_000217",OK,1,Thanh cong
+D,TX_DEMO_D,N8,"So sanh voi ban goc (thong tin, khong phai pass/fail)",PB_v1.0 vs TX_DEMO_D,OK,2,"them=1, xoa=1, doi so luong=1"
+D,TX_DEMO_D,N15,Phat hanh phien ban (BR-15),phien ban=TX_DEMO_D,OK,6,Thanh cong
+D,TX_DEMO_D,N12,Sua so luong - chan boi BR-14 (sau khi tu phat hanh),"cha=TP_000118, con=TP_000199",OK_CHAN_DUNG,0,"IllegalStateException: Phien ban TX_DEMO_D dang o trang thai PHAT_HANH, khong duoc sua cau truc (BR-14)"

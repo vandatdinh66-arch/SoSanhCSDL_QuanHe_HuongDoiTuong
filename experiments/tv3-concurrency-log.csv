@@ -1,0 +1,25 @@
+kich_ban,loai_kiem_tra,so_thread,so_thanh_cong,so_loi,loai_loi_chinh,gia_tri_cuoi_cung,nhat_quan,thoi_gian_tong_ms,ghi_chu
+A,KHONG_XUNG_DOT,2,2,0,,n/a (moi thread 1 canh rieng),true,2,2/2 thread ghi thanh cong tren 2 canh doc lap
+A,XUNG_DOT_CUNG_CANH,2,1,1,OptimisticLockException,500,true,0,"2 thread cung sua canh TP_000001->TP_000357, cac gia tri thu: [500], gia tri luu cuoi cung=500"
+A,KHONG_XUNG_DOT,5,5,0,,n/a (moi thread 1 canh rieng),true,4,5/5 thread ghi thanh cong tren 5 canh doc lap
+A,XUNG_DOT_CUNG_CANH,5,2,3,OptimisticLockException,504,true,0,"5 thread cung sua canh TP_000001->TP_000357, cac gia tri thu: [500, 504], gia tri luu cuoi cung=504"
+A,KHONG_XUNG_DOT,10,10,0,,n/a (moi thread 1 canh rieng),true,5,10/10 thread ghi thanh cong tren 10 canh doc lap
+A,XUNG_DOT_CUNG_CANH,10,2,8,OptimisticLockException,504,true,2,"10 thread cung sua canh TP_000001->TP_000357, cac gia tri thu: [501, 504], gia tri luu cuoi cung=504"
+B,KHONG_XUNG_DOT,2,2,0,,n/a (moi thread 1 canh rieng),true,1,2/2 thread ghi thanh cong tren 2 canh doc lap
+B,XUNG_DOT_CUNG_CANH,2,1,1,OptimisticLockException,500,true,0,"2 thread cung sua canh TP_000001->TP_000400, cac gia tri thu: [500], gia tri luu cuoi cung=500"
+B,KHONG_XUNG_DOT,5,5,0,,n/a (moi thread 1 canh rieng),true,1,5/5 thread ghi thanh cong tren 5 canh doc lap
+B,XUNG_DOT_CUNG_CANH,5,2,3,OptimisticLockException,504,true,0,"5 thread cung sua canh TP_000001->TP_000400, cac gia tri thu: [500, 504], gia tri luu cuoi cung=504"
+B,KHONG_XUNG_DOT,10,10,0,,n/a (moi thread 1 canh rieng),true,2,10/10 thread ghi thanh cong tren 10 canh doc lap
+B,XUNG_DOT_CUNG_CANH,10,3,7,OptimisticLockException,507,true,0,"10 thread cung sua canh TP_000001->TP_000400, cac gia tri thu: [500, 502, 507], gia tri luu cuoi cung=507"
+C,KHONG_XUNG_DOT,2,2,0,,n/a (moi thread 1 canh rieng),true,1,2/2 thread ghi thanh cong tren 2 canh doc lap
+C,XUNG_DOT_CUNG_CANH,2,1,1,OptimisticLockException,500,true,0,"2 thread cung sua canh TP_000001->TP_000197, cac gia tri thu: [500], gia tri luu cuoi cung=500"
+C,KHONG_XUNG_DOT,5,5,0,,n/a (moi thread 1 canh rieng),true,1,5/5 thread ghi thanh cong tren 5 canh doc lap
+C,XUNG_DOT_CUNG_CANH,5,2,3,OptimisticLockException,503,true,0,"5 thread cung sua canh TP_000001->TP_000197, cac gia tri thu: [500, 503], gia tri luu cuoi cung=503"
+C,KHONG_XUNG_DOT,10,10,0,,n/a (moi thread 1 canh rieng),true,1,10/10 thread ghi thanh cong tren 10 canh doc lap
+C,XUNG_DOT_CUNG_CANH,10,2,8,OptimisticLockException,502,true,2,"10 thread cung sua canh TP_000001->TP_000197, cac gia tri thu: [500, 502], gia tri luu cuoi cung=502"
+D,KHONG_XUNG_DOT,2,2,0,,n/a (moi thread 1 canh rieng),true,1,2/2 thread ghi thanh cong tren 2 canh doc lap
+D,XUNG_DOT_CUNG_CANH,2,1,1,OptimisticLockException,500,true,0,"2 thread cung sua canh TP_000118->TP_000199, cac gia tri thu: [500], gia tri luu cuoi cung=500"
+D,KHONG_XUNG_DOT,5,5,0,,n/a (moi thread 1 canh rieng),true,1,5/5 thread ghi thanh cong tren 5 canh doc lap
+D,XUNG_DOT_CUNG_CANH,5,2,3,OptimisticLockException,503,true,0,"5 thread cung sua canh TP_000118->TP_000199, cac gia tri thu: [500, 503], gia tri luu cuoi cung=503"
+D,KHONG_XUNG_DOT,10,10,0,,n/a (moi thread 1 canh rieng),true,1,10/10 thread ghi thanh cong tren 10 canh doc lap
+D,XUNG_DOT_CUNG_CANH,10,3,7,OptimisticLockException,506,true,0,"10 thread cung sua canh TP_000118->TP_000199, cac gia tri thu: [500, 503, 506], gia tri luu cuoi cung=506"
