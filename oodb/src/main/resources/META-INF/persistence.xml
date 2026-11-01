@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <persistence-unit name="bom-oodb" transaction-type="RESOURCE_LOCAL">
+        <provider>com.objectdb.jpa.Provider</provider>
+        <class>vn.edu.bom.oodb.model.LoaiThanhPhan</class>
+        <class>vn.edu.bom.oodb.model.SanPham</class>
+        <class>vn.edu.bom.oodb.model.PhienBan</class>
+        <class>vn.edu.bom.oodb.model.ThanhPhan</class>
+        <class>vn.edu.bom.oodb.model.CumLapRap</class>
+        <class>vn.edu.bom.oodb.model.LinhKien</class>
+        <class>vn.edu.bom.oodb.model.LinhKienCoKhi</class>
+        <class>vn.edu.bom.oodb.model.LinhKienDienTu</class>
+        <class>vn.edu.bom.oodb.model.CauThanh</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="objectdb:target/bom.odb"/>
+            <property name="javax.persistence.jdbc.user" value="admin"/>
+            <property name="javax.persistence.jdbc.password" value="admin"/>
+        </properties>
+    </persistence-unit>
+</persistence>
